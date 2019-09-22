@@ -4,6 +4,7 @@ class GamesController < ApplicationController
     def new    
         @game = Game.new
     end
+    
     def create
         @game = current_user.games.build(game_params)
         if @game.valid? && @game.save                 
