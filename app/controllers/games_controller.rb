@@ -1,23 +1,23 @@
 class GamesController < ApplicationController
     before_action :to_user_not_authenticated?, except: [:index, :show, :new]
 
-    def new    
+    def new
         @game = Game.new
     end
-    
+
     def create
         @game = current_user.games.build(game_params)
-        if @game.valid? && @game.save                 
+        if @game.valid? && @game.save
             redirect_to rock_path(@game)
         else
             render :new
         end
     end
-    
+
     def index
         @games = Game.all
     end
-    
+
     def show
         @game = Game.find(params[:id])
         @review_user = {}
@@ -28,18 +28,18 @@ class GamesController < ApplicationController
             end
         end
     end
-    
+
     def collection
         @Game = current_user.games.all
     end
-    
+
     def edit
         @game = Game.find(params[:id])
         if @game.user != current_user
             redirect_to root_path
         end
     end
-    
+
     def update
         @game = Game.find(params[:id])
         if @game.user == current_user && @game.valid? && @game.update(game_params)
@@ -48,7 +48,7 @@ class GamesController < ApplicationController
             render :edit
         end
     end
-    
+
     def destroy
         @game = Game.find(params[:id])
         if @game.user == current_user
@@ -59,6 +59,6 @@ class GamesController < ApplicationController
 
     private
     def game_params
-        params.require(:game).permit(:name, :description, :location, :user_id)
+        params.require(:game).permit(:name, :genre, :company, :system, :user_id)
     end
 end
