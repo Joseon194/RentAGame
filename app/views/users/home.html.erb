@@ -1,0 +1,20 @@
+<h1> Hey player, <%= @user.name %></h1>
+
+<h2> Take a look at your:</h2>
+<%= link_to 'Collection', collection_path(@user)%>
+
+
+<h2> Add a new game to your collection: </h2>
+<%= link_to 'New Game', new_game_path(@user) %><br>
+
+<h2> View all other member's collection: </h2>
+<%= link_to 'All Games', games_path(@user) %><br>
+
+<h2>These are the games you have reviewed on:</h2>
+    <%= link_to 'Reviews', reviewed_games_path %><br>
+    <br>
+    <br>
+
+<%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
+    <input type = submit value = 'Log Out'>
+<% end %>

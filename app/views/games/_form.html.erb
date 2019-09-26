@@ -1,0 +1,35 @@
+<%= form_for @game do |f| %>
+
+    <% if @game.errors.any? %>
+        <div id= "error_explanation" >
+            <h2>
+            <%= pluralize(@game.errors.count, "error") %>
+            prohibited this game from being created:
+            </h2>
+
+            <ul>
+            <% @game.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+            </ul>
+        </div>
+        <% end %>
+        <br/>
+
+
+    <%= f.hidden_field :user_id %>
+
+    <%= f.label 'Name:' %><br>
+    <%= f.text_field :name %><br>
+<br>
+    <%= f.label 'Genre:' %><br>
+    <%= f.text_area :genre %><br>
+<br>
+    <%= f.label 'Company:' %>:<br>
+    <%= f.text_area :company %><br>
+<br>
+    <%= f.label 'Platform:' %>:<br>
+    <%= t.text_area :platform %>:<br>
+<br>
+    <%= f.submit %>
+<% end %>

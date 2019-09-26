@@ -1,0 +1,14 @@
+<h1> Hey player, <%= @user.name %></h1>
+
+<br>
+    <%= link_to 'Home', home_path(@user) %>
+<br>
+
+<h3>Here are all the games you've reviewed:</h3>
+
+    <% @user.reviewed_games.each do |game| %>
+        <%if game.id != nil %>
+            <%= link_to 'You commented on ' + game.name, game_path(game)%>
+            <br>
+        <% end %>
+<% end %>

@@ -4,7 +4,7 @@ class CreateGames < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :genre
       t.string :company
-      t.string :system
+      t.string :platform
       t.belongs_to :user, foreign_key: true
       t.timestamps
     end

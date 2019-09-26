@@ -1,0 +1,14 @@
+<h1><%= @user.name %>'s Collection </h1>
+
+<%= link_to 'Home', home_path(@user) %><br>
+
+
+
+<h3>Here is a list of the games in your collection:</h3>
+<ul>
+    <% @user.games.each do |game| %>
+        <li>
+            <%= link_to game.name, game_path(game) %>
+        </li>
+    <% end %>
+</ul>

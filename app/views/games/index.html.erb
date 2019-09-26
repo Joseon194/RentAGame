@@ -1,0 +1,19 @@
+<% if current_user %>
+<h2> Hello <%= current_user.name %>, take a look at all of our other collector's games!</h2>
+
+<%= link_to 'Home', home_path %>
+<% end %>
+<br>
+<br>
+<% counter = 1 %>
+<% @games.each do |game| %>
+<h3> <%= counter %> . </h3>
+    <h4>Name: <%= game.name %> </h4>
+    <h4>Genre: <%= game.genre %> </h4>
+    <h4>Company: <%= game.company %> </h4>
+    <h4>Platform: <%= game.platform %> </h4>
+    <%= link_to 'Review on this ' + game.name, game_path(game)%>
+    <% counter += 1 %>
+<% end %>
+<br/>
+<br>

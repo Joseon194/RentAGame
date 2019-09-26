@@ -1,0 +1,57 @@
+<h2> Viewing <%= @game.name %> </h2>
+<p>
+    <h3>Found by: <%= @game.user.name %>
+    <h3>Genre: <%= @game.genre %></h3>
+    <h3>Company: <%= @game.company %></h3>
+    <h3>System: <%= @game.platform %></h3>
+</p>
+<%if current_user && current_user.id == @game.user.id %>
+     <%= link_to 'Edit', edit_game_path(@game)%>
+    or
+    <%= link_to 'Delete', game_path(@game), method: :delete, data: {confirm: 'Are you sure?'}%><br>
+<% end %>
+<br>
+<br>
+    <%= link_to 'Home', home_path(@user) %>
+<br>
+<br>
+
+<%= form_for @game.comments.build, :as => :comment, :url => game_comments_path(@game) do |f| %>
+    <%= f.hidden_field :game_id %>
+
+    <% if current_user %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+    <% else %>
+
+    <h3> Sign up as a Collector to review this game! </h3>
+
+        <%= f.fields_for :user, User.new do |user_fields| %>
+            <%= user_fields.label :name, 'Name:' %>
+            <%= user_fields.text_field :name %>
+            <%= user_fields.label :password, 'Password:' %>
+            <%= user_fields.password_field :password %>
+            <%= user_fields.label :password_confirmation, 'Password Confirmation:' %>
+            <%= user_fields.password_field :password_confirmation %>
+        <% end %>
+    <% end %>
+
+    <h3>Comment on this game:</h3>
+
+    <p>
+        <%= f.label :content, "New Review" %>:
+        <%= f.text_area :content %>
+    </p>
+
+    <%= f.submit %>
+
+<% end %><br>
+
+
+<h3>Reviews:</h3>
+    <% @game.reviews.each do |review| %>
+        <%if review.id != nil %>
+            <%=@review_user[review.user_id]%> said,
+            "<%= review.content %>"<br>
+            <br>
+        <% end %>
+<% end %>
