@@ -15,6 +15,18 @@ def create
   end
 end
 
+def facebook_create
+       @new_user = User.find_or_create_by(uid: auth['uid']) do |u|
+           u.name = auth['info']['name']
+           u.email = auth['info']['email']
+           u.image = auth['info']['image']
+           u.password = User.generic_password
+       end
+       @new_user.save
+       session[:user_id] = @new_user.id
+       redirect_to home_path(@new_user)
+   end
+
 def destroy
   session[:user_id] = nil
   redirect_to root_path

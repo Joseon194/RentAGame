@@ -1,0 +1,27 @@
+<h1> Welcome to Game Collector </h1>
+
+
+<div style="font-size: 25px; font-weight: semibold;">Welcome gamer! Game Collector was built so you can share all of your experiences
+  of all the games you have played in the present and past! Share your experiences with other players in our welcoming community! Happy gaming! </div>
+
+<br>
+    <h3> Latest Collection Submissions: </h3>
+
+    <% recent_games.each do |recent_game| %>
+        <%= recent_game %><br/>
+    <% end %>
+
+<br>
+
+<h3><%= link_to 'Check out all of our members collections!', games_path %><br></h3>
+
+<br>
+
+
+<h3> Sign Up with the link below </h3>
+<%= link_to(controller: 'users', action: 'new') { 'Sign Up' } %>
+<h3> Log in with the link below </h3>
+<%= link_to(controller: 'sessions', action: 'login') { 'Log In' } %>
+<br>
+
+<%= link_to('Log in with Facebook!', '/auth/facebook') %>
