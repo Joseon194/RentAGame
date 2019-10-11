@@ -17,3 +17,4 @@ module GamesHelper
     end
     return game_list
 end
+end
