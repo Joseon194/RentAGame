@@ -5,6 +5,7 @@ module GamesHelper
     game_user = {}
     recent_games.each do |game|
       if game_user[game.user_id] == nil
+        user = User.find_by_id(game.user_id)
         game_user[user.id] = user.name
       end
     end
