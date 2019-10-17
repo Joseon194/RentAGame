@@ -1,5 +1,7 @@
 <h1>Please Sign up below!</h1>
+
 <% if @user.errors.any? %>
+<div id= "error_explanation" >
 <h2>
   <%= pluralize(@user.errors.count, "error") %>
   prohibited this user from being created:
@@ -13,17 +15,19 @@
 </div>
 <% end %>
 
+<%= form_for @user do |f| %>
+  
 <%= f.label :name %>
 <%= f.text_field :name %>
-
+<br>
 <%= f.label :password %>
 <%= f.password_field :password %>
-
+<br>
 <%= f.label :password_confirmation %>
 <%= f.password_field :password_confirmation %>
-
+<br>
 <%= f.label :email %>
 <%= f.email_field :email %>
-
+<br>
 <%= f.submit "Sign Up!" %>
 <% end %>

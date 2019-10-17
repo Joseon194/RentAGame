@@ -8,9 +8,9 @@ class GamesController < ApplicationController
     def create
         @game = current_user.games.build(game_params)
         if @game.valid? && @game.save
-            redirect_to rock_path(@game)
+            redirect_to game_path(@game)
         else
-            render :new
+            render :form
         end
     end
 
@@ -43,7 +43,7 @@ class GamesController < ApplicationController
     def update
         @game = Game.find(params[:id])
         if @game.user == current_user && @game.valid? && @game.update(game_params)
-            redirect_to rock_path(@game)
+            redirect_to game_path(@game)
         else
             render :edit
         end
@@ -59,6 +59,6 @@ class GamesController < ApplicationController
 
     private
     def game_params
-        params.require(:game).permit(:name, :genre, :company, :system, :user_id)
+        params.require(:game).permit(:name, :genre, :company, :platform, :user_id)
     end
 end
