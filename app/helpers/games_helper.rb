@@ -13,7 +13,7 @@ module GamesHelper
     game_list = []
     recent_games.each do |game|
       if game.id != nil
-        game_list << "#{game.name}, rented by #{game_user[game_user.id]}"
+        game_list << "#{game.name}, owned by #{game_user[game_user.id]}"
       end
     end
     return game_list

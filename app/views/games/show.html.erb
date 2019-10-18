@@ -16,7 +16,7 @@
 <br>
 <br>
 
-<%= form_for @game.comments.build, :as => :comment, :url => game_comments_path(@game) do |f| %>
+<%= form_for @game.reviews.build, :as => :review, :url => game_reviews_path(@game) do |f| %>
     <%= f.hidden_field :game_id %>
 
     <% if current_user %>

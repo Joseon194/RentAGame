@@ -21,9 +21,9 @@ class GamesController < ApplicationController
     def show
         @game = Game.find(params[:id])
         @review_user = {}
-        @game.comments.each do |review|
-            if @review_user[comment.user_id] == nil
-               user = User.find_by_id(comment.user_id)
+        @game.reviews.each do |review|
+            if @review_user[review.user_id] == nil
+               user = User.find_by_id(review.user_id)
                @review_user[user.id] = user.name
             end
         end
