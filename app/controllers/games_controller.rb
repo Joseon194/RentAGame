@@ -10,7 +10,7 @@ class GamesController < ApplicationController
         if @game.valid? && @game.save
             redirect_to game_path(@game)
         else
-            render :form
+            render :new
         end
     end
 
