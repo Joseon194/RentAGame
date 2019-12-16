@@ -55,8 +55,8 @@ class GamesController < ApplicationController
         @game = Game.find_by(id: params[:id])
         if @game.user == current_user
             @game.delete # SQLite3::ConstraintException: FOREIGN KEY constraint failed 
+            binding.pry  
             redirect_to collection_path(@game.user)
-            binding.pry
         end
     end
 
