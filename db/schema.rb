@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_27_171205) do
+ActiveRecord::Schema.define(version: 2019_12_20_221931) do
 
   create_table "games", force: :cascade do |t|
     t.string "name"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2019_09_27_171205) do
     t.string "uid"
   end
 
-  add_foreign_key "games", "users"
-  add_foreign_key "reviews", "games"
-  add_foreign_key "reviews", "users"
+  add_foreign_key "games", "users", on_delete: :cascade
+  add_foreign_key "reviews", "games", on_delete: :cascade
+  add_foreign_key "reviews", "users", on_delete: :cascade
 end

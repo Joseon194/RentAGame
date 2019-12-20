@@ -1,4 +1,3 @@
-require 'pry'
 
 class GamesController < ApplicationController
     before_action :to_user_not_authenticated?, except: [:index, :show, :new]
@@ -52,11 +51,10 @@ class GamesController < ApplicationController
     end
 
     def destroy
-        @game = Game.find_by(id: params[:id])
-        if @game.user == current_user
-            @game.delete # SQLite3::ConstraintException: FOREIGN KEY constraint failed 
-            binding.pry  
-            redirect_to collection_path(@game.user)
+        @game = Game.find(params[:id])
+        if @game.user_id == current_user.id
+        @game.delete
+        redirect_to collection_path(@game.user)
         end
     end
 
