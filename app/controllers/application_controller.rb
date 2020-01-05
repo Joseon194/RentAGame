@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
     def current_user
         @user ||= User.find_by(id: session[:user_id]) if session[:user_id]
     end
+    helper_method :current_user
+end
 
     def logged_in?
         !!current_user
@@ -33,4 +35,3 @@ class ApplicationController < ActionController::Base
     def to_already_logged_in?
         return if already_logged_in?
     end
-end

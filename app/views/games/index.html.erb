@@ -12,6 +12,7 @@
     <h4>Genre: <%= game.genre %> </h4>
     <h4>Company: <%= game.company %> </h4>
     <h4>Platform: <%= game.platform %> </h4>
+    <h4>Date: <%= game.date %> </h4>
     <%= link_to 'Review on this ' + game.name, game_path(game)%>
     <% counter += 1 %>
 <% end %>

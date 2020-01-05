@@ -4,6 +4,7 @@
     <h3>Genre: <%= @game.genre %></h3>
     <h3>Company: <%= @game.company %></h3>
     <h3>System: <%= @game.platform %></h3>
+    <h3>Date: <%= @game.date %></h3>
 </p>
 <%if current_user && current_user.id == @game.user.id %>
      <%= link_to 'Edit', edit_game_path(@game)%>

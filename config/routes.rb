@@ -13,5 +13,7 @@ Rails.application.routes.draw do
 get '/reviewed_games' => 'users#reviewed_games'
  root 'welcome#home'
 
- get '/auth/facebook/callback' => 'sessions#facebook_create'
+match 'auth/facebook/callback', to: 'sessions#create', via: [:get,:post]
+match 'auth/failure', to: redirect('/'), via: [:get, :post]
+match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 end
