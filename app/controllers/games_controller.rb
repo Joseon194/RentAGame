@@ -55,7 +55,7 @@ class GamesController < ApplicationController
     def destroy
         @game = Game.find(params[:id])
         if @game.user_id == current_user.id
-            # @game.reviews.delete_all
+            @game.reviews.delete_all
         @game.delete
         redirect_to collection_path(@game.user)
         end
