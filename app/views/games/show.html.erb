@@ -7,9 +7,9 @@
     <h3>Date: <%= @game.date %></h3>
 </p>
 <%if current_user && current_user.id == @game.user.id %>
-     <%= link_to 'Edit', edit_game_path(@game)%>
+     <%= link_to 'Edit this game!', edit_game_path(@game)%>
     or
-    <%= link_to 'Delete', game_path(@game), method: :delete, data: {confirm: 'Are you sure?'}%><br>
+    <%= link_to 'Delete this Game!', game_path(@game), method: :delete, data: {confirm: 'Are you sure you would like to delete this entry?'}%><br>
 <% end %>
 <br>
 <br>

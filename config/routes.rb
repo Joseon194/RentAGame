@@ -16,4 +16,5 @@ get '/reviewed_games' => 'users#reviewed_games'
 match 'auth/facebook/callback', to: 'sessions#create', via: [:get,:post]
 match 'auth/failure', to: redirect('/'), via: [:get, :post]
 match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
+#Get is used to fetch data and Post is used for submitting data
 end
