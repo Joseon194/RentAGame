@@ -11,9 +11,11 @@ class GamesController < ApplicationController
         if @game.valid? && @game.save
             redirect_to game_path(@game)
             #A "redirect_to" is used in your controller to reply to a request and it will simply redirect the request to a new URL.
+            # it will redirect you to the new game that you had saved through the new url that was sent.
         else
             render :new
             #Render can be used in many ways but its mainly used to render your html views
+            #it will render the "new" html view for games
         end
     end
 

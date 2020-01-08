@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_03_203712) do
+ActiveRecord::Schema.define(version: 2020_01_08_161530) do
 
   create_table "games", force: :cascade do |t|
     t.string "name"
@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 2020_01_03_203712) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "image"
     t.string "uid"
+    t.string "google_token"
+    t.string "google_refresh_token"
   end
 
   add_foreign_key "games", "users", on_delete: :cascade

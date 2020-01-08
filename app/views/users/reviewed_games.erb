@@ -8,7 +8,7 @@
 
     <% @user.reviewed_games.each do |game| %>
         <%if game.id != nil %>
-            <%= link_to 'You reviewed ' + game.name, game_path(game)%>
+            <%= link_to 'You have reviewed ' + game.name, game_path(game)%>
             <br>
         <% end %>
 <% end %>

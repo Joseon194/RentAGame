@@ -20,8 +20,9 @@
 
 <h3> Sign Up with the link below </h3>
 <%= link_to(controller: 'users', action: 'new') { 'Sign Up' } %>
-<h3> Log in with the link below </h3>
+<h3> Log In with the link below </h3>
 <%= link_to(controller: 'sessions', action: 'login') { 'Log In' } %>
 <br>
 
-<%= link_to('Sign in with Facebook!', '/auth/facebook', id: "sign_in") %>
+<%= link_to('Sign in with Google!', '/auth/google_oauth2', id: "sign_in") %>
+ 
