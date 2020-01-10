@@ -2,7 +2,14 @@
 <h2> Hello <%= current_user.name %>, take a look at all of our other collector's games!</h2>
 
 <%= link_to 'Home', home_path %>
-<% end %>
+
+<% else %>
+
+    <h2> You must log in to see other users collections! </h2>
+    <h2> If you do not have an account: </h2> 
+        <%= link_to 'click here to register!', new_user_path %>
+
+    <% end %>
 <br>
 <br>
 <% counter = 1 %>
