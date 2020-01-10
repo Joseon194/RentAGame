@@ -1,0 +1,10 @@
+<h3>Reviews:</h3>
+    <% @game.reviews.each do |review| %>
+        <%if review.id != nil %>
+            <%=@review_user[review.user_id]%> said,
+            "<%= review.content %>"<br>
+            <br>
+        <% end %>
+        <% end %>
+
+<%= link_to 'Write a new review', new_game_review_path(@game) %>

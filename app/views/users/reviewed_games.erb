@@ -4,7 +4,7 @@
     <%= link_to 'Home', home_path(@user) %>
 <br>
 
-<h3>Here are all the games you've reviewed:</h3>
+<h3>Here are all the games you have reviewed:</h3>
 
     <% @user.reviewed_games.each do |game| %>
         <%if game.id != nil %>
